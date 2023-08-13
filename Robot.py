@@ -1,12 +1,12 @@
-import pyfirmata
-import constants
-from StepperMotor import Motor
+# import pyfirmata
+# import constants
+# from StepperMotor import Motor
 
 
 class Robot:
 
     def __init__(self, down, up, left, right, front, back):
-        # This Robot class takes in 6 Motor objects as arguments
+        # This Robot class takes in 6 Motor objects as parameters
 
         self.DownMotor = down
         self.UpMotor = up

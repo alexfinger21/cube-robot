@@ -1,5 +1,5 @@
 import pyfirmata
-import time
+# import time
 import constants
 from StepperMotor import Motor
 from Robot import Robot

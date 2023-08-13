@@ -1,5 +1,5 @@
-import pyfirmata
-import time
+# import pyfirmata
+# import time
 
 
 class Motor:
@@ -14,7 +14,7 @@ class Motor:
         # Turns the motor by a given degree value
 
         iterations = degrees / 1.8
-        for i in range (0, iterations):
+        for i in range(0, iterations):
             self.stepPin.write(1)
             self.stepPin.write(0)
 
