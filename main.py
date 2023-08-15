@@ -1,5 +1,5 @@
 import pyfirmata
-# import time
+import time
 import constants
 from StepperMotor import Motor
 from Robot import Robot
@@ -33,3 +33,23 @@ CubeRobot = Robot(DownMotor, UpMotor, LeftMotor, RightMotor, FrontMotor, BackMot
 # CubeRobot.rotate("R'", 1) --> turns the right motor 90 degrees counterclockwise
 # CubeRobot.rotate("R", 1) --> turns the right motor 90 degrees clockwise
 # CubeRobot.rotate("L", 1) --> turns the left motor 90 degrees clockwise
+
+#TEST
+print("not kosher")
+
+while True:
+    print("clockwise")
+    CubeRobot.rotate("D", 2) # turns the botom motor 180 degrees
+    time.sleep(1)
+    CubeRobot.rotate("L", 2) # turns the left motor 180 degrees
+    time.sleep(1)
+    CubeRobot.rotate("R", 2) # turns the left motor 180 degrees
+    time.sleep(1)
+
+    print("counterclockwise")
+    CubeRobot.rotate("D’", 1) # turns the botom motor 180 degrees
+    time.sleep(1)
+    CubeRobot.rotate("L’", 1) # turns the left motor 180 degrees
+    time.sleep(1)
+    CubeRobot.rotate("R’", 1) # turns the left motor 180 degrees
+    time.sleep(1)

@@ -13,7 +13,7 @@ class Motor:
     def turn(self, degrees):
         # Turns the motor by a given degree value
 
-        iterations = degrees / 1.8
+        iterations = round(degrees / 1.8)
         for i in range(0, iterations):
             self.stepPin.write(1)
             self.stepPin.write(0)
@@ -21,9 +21,10 @@ class Motor:
     def setDirection(self, direction):
         # Sets the rotation direction of the motor as either clockwise or counterclockwise
 
+
         if direction == "clockwise":
-            self.dirPin.write(1)
-        if direction == "counterclockwise":
             self.dirPin.write(0)
+        elif direction == "counterclockwise":
+            self.dirPin.write(1)
         else:
             print("ERROR: setDirection takes in an argument of 'clockwise' or 'counterclockwise'")
