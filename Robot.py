@@ -36,34 +36,33 @@ class Robot:
 
         if (turns != 1) and (turns != 2):
             print("ERROR: turns has to be an integer either 1 or 2 (1 for 90 degree turn 2 for a 180 degree turn)")
-        match side:
-            case "R":
-                self.RightMotor.setDirection("clockwise")
-                self.RightMotor.turn(90 * turns)
-            case "R’":
-                self.RightMotor.setDirection("counterclockwise")
-                self.RightMotor.turn(90 * turns)
-            case "L":
-                self.LeftMotor.setDirection("clockwise")
-                self.LeftMotor.turn(90 * turns)
-            case "L’":
-                self.LeftMotor.setDirection("counterclockwise")
-                self.LeftMotor.turn(90 * turns)
-            case "U":
-                self.UpMotor.setDirection("clockwise")
-                self.UpMotor.turn(90 * turns)
-            case "U’":
-                self.UpMotor.setDirection("counterclockwise")
-                self.UpMotor.turn(90 * turns)
-            case "D":
-                self.DownMotor.setDirection("clockwise")
-                self.DownMotor.turn(90 * turns)
-            case "D’":
-                self.DownMotor.setDirection("counterclockwise")
-                self.DownMotor.turn(90 * turns)
-            case "F":
-                self.FrontMotor.setDirection("clockwise")
-                self.FrontMotor.turn(90 * turns)
-            case "F’":
-                self.FrontMotor.setDirection("counterclockwise")
-                self.FrontMotor.turn(90 * turns)
+        if side == "R":
+            self.RightMotor.setDirection("clockwise")
+            self.RightMotor.turn(90 * turns)
+        elif side == "R’":
+            self.RightMotor.setDirection("counterclockwise")
+            self.RightMotor.turn(90 * turns)
+        elif side == "L":
+            self.LeftMotor.setDirection("clockwise")
+            self.LeftMotor.turn(90 * turns)
+        elif side == "L’":
+            self.LeftMotor.setDirection("counterclockwise")
+            self.LeftMotor.turn(90 * turns)
+        elif side == "U":
+            self.UpMotor.setDirection("clockwise")
+            self.UpMotor.turn(90 * turns)
+        elif side == "U’":
+            self.UpMotor.setDirection("counterclockwise")
+            self.UpMotor.turn(90 * turns)
+        elif side == "D":
+            self.DownMotor.setDirection("clockwise")
+            self.DownMotor.turn(90 * turns)
+        elif side == "D’":
+            self.DownMotor.setDirection("counterclockwise")
+            self.DownMotor.turn(90 * turns)
+        elif side == "F":
+            self.FrontMotor.setDirection("clockwise")
+            self.FrontMotor.turn(90 * turns)
+        elif side ==  "F’":
+            self.FrontMotor.setDirection("counterclockwise")
+            self.FrontMotor.turn(90 * turns)
