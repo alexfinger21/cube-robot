@@ -1,21 +1,31 @@
-import pyfirmata
-import time
+import cv2
 
-board = pyfirmata.Arduino("COM3")
-print("Communication Started!!!")
+# This is all just some goofy stuff to get pixel values for da vision for da rubiks cube
+global print_list
+print_list = []
 
-print("not kosher")
 
+def mouse_click(event, x, y, flags, param):
+    global print_list
+    if event == cv2.EVENT_LBUTTONDOWN:
+        print(f"Clicked at pixel location on snapshot: ({x}, {y})")
+        print_list.append((x, y))
+
+        if len(print_list) == 5:
+
+            print(print_list)
+            print_list.clear()
+
+
+cap = cv2.VideoCapture(0)  # REPLACE "cap" VARIABLE WITH IMAGE RETRIEVED FROM CAMERA
+ret, frame = cap.read()
+cv2.imshow("Snapshot", frame)
+cv2.setMouseCallback("Snapshot", mouse_click)
 while True:
-    print("here")
-    for i in range(int(360/1.8)):
-        board.digital[2].write(1)
-        board.digital[3].write(1)
-        board.digital[4].write(1)
 
-        time.sleep(0.001)
-        board.digital[2].write(0)
-        board.digital[3].write(0)
-        board.digital[4].write(0)
+    key = cv2.waitKey(1)
 
-    time.sleep(1)
+    if key == 27:  # Press ESC key to exit
+        break
+
+cap.release()

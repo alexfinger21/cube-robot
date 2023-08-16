@@ -23,7 +23,7 @@ CubeRobot = Robot(DownMotor, UpMotor, LeftMotor, RightMotor, FrontMotor, BackMot
 
 # The only thing left to program is using the kociemba library to feed a solution string into the CubeRobot
 # I would suggest installing kociemba on your laptop if you have not already, it is not an easy process like
-# most python libraries, you will need updated C++ build tools and took me a while to figure out. Alex and I have
+# most python libraries, you will need up+dated C++ build tools and took me a while to figure out. Alex and I have
 # it installed on our PC's but let's all get it installed on our laptops.
 
 # If you want to test turning the robot, simply call the Robot objects "rotate" method
@@ -34,22 +34,25 @@ CubeRobot = Robot(DownMotor, UpMotor, LeftMotor, RightMotor, FrontMotor, BackMot
 # CubeRobot.rotate("R", 1) --> turns the right motor 90 degrees clockwise
 # CubeRobot.rotate("L", 1) --> turns the left motor 90 degrees clockwise
 
-#TEST
+# TEST
 print("not kosher")
 
+
+CubeRobot.solve("D D2 L' R' R2 L2")
 while True:
     print("clockwise")
-    CubeRobot.rotate("D", 2) # turns the botom motor 180 degrees
+    CubeRobot.rotate("D", 2)  # turns the bottom motor 180 degrees
     time.sleep(1)
-    CubeRobot.rotate("L", 2) # turns the left motor 180 degrees
+    CubeRobot.rotate("L", 2)  # turns the left motor 180 degrees
     time.sleep(1)
-    CubeRobot.rotate("R", 2) # turns the left motor 180 degrees
+    CubeRobot.rotate("R", 2)  # turns the left motor 180 degrees
     time.sleep(1)
 
     print("counterclockwise")
-    CubeRobot.rotate("D’", 1) # turns the botom motor 180 degrees
+    CubeRobot.rotate("D’", 1)  # turns the bottom motor 90 degrees
     time.sleep(1)
-    CubeRobot.rotate("L’", 1) # turns the left motor 180 degrees
+    CubeRobot.rotate("L’", 1)  # turns the left motor 90 degrees
     time.sleep(1)
-    CubeRobot.rotate("R’", 1) # turns the left motor 180 degrees
+    CubeRobot.rotate("R’", 1)  # turns the left motor 90 degrees
     time.sleep(1)
+

@@ -21,7 +21,6 @@ class Motor:
     def setDirection(self, direction):
         # Sets the rotation direction of the motor as either clockwise or counterclockwise
 
-
         if direction == "clockwise":
             self.dirPin.write(0)
         elif direction == "counterclockwise":

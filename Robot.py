@@ -63,6 +63,6 @@ class Robot:
         elif side == "F":
             self.FrontMotor.setDirection("clockwise")
             self.FrontMotor.turn(90 * turns)
-        elif side ==  "F’":
+        elif side == "F’":
             self.FrontMotor.setDirection("counterclockwise")
             self.FrontMotor.turn(90 * turns)
