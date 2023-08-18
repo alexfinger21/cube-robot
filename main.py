@@ -41,18 +41,18 @@ print("not kosher")
 CubeRobot.solve("D D2 L' R' R2 L2")
 while True:
     print("clockwise")
-    CubeRobot.rotate("D", 2)  # turns the bottom motor 180 degrees
+    CubeRobot.rotate("D", 2)  # turns the bottom motor 180 degrees clockwise
     time.sleep(1)
-    CubeRobot.rotate("L", 2)  # turns the left motor 180 degrees
+    CubeRobot.rotate("L", 2)  # turns the left motor 180 degrees clockwise
     time.sleep(1)
-    CubeRobot.rotate("R", 2)  # turns the left motor 180 degrees
+    CubeRobot.rotate("R", 2)  # turns the right motor 180 degrees clockwise
     time.sleep(1)
 
     print("counterclockwise")
-    CubeRobot.rotate("D’", 1)  # turns the bottom motor 90 degrees
+    CubeRobot.rotate("D’", 1)  # turns the bottom motor 90 degrees counterclockwise
     time.sleep(1)
-    CubeRobot.rotate("L’", 1)  # turns the left motor 90 degrees
+    CubeRobot.rotate("L’", 1)  # turns the left motor 90 degrees counterclockwise
     time.sleep(1)
-    CubeRobot.rotate("R’", 1)  # turns the left motor 90 degrees
+    CubeRobot.rotate("R’", 1)  # turns the right motor 90 degrees counterclockwise
     time.sleep(1)
 
