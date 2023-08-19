@@ -1,8 +1,3 @@
-# import pyfirmata
-# import constants
-# from StepperMotor import Motor
-
-
 class Robot:
 
     def __init__(self, down, up, left, right, front, back):

@@ -1,7 +1,3 @@
-# import pyfirmata
-# import time
-
-
 class Motor:
     def __init__(self, dir_pin, step_pin):
         # This Motor class takes in the digital port numbers the
