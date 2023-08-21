@@ -26,14 +26,14 @@ def get_state():
     cube_state_string = ""
 
     # Gets all the center facelet BGR values
-    green = [2, 250, 2]
-    red = [2, 2, 250]
-    yellow = [2, 233, 250]
-    blue = [23, 2, 250]
+    green = [0, 255, 0]
+    red = [0, 0, 255]
+    yellow = [0, 255, 255]
+    blue = [255, 0, 0]
     white = [255, 255, 255]
-    orange = [2, 126, 250]
+    orange = [0, 165, 255]
 
-    return findClosestCenterFacelet(np.array([11, 100, 217]))  #Just enter a BGR value in here and it returns its color
+    return findClosestCenterFacelet(np.array([247, 121, 2]))  #Just enter a BGR value in here and it returns its color
 
 print(get_state())
 

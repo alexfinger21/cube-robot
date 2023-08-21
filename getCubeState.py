@@ -72,12 +72,6 @@ def get_state():
     dBGR = getBGR(constants.FACELETS_CAM_2[4], imageCam2)
     lBGR = getBGR(constants.FACELETS_CAM_2[13], imageCam2)
     bBGR = getBGR(constants.FACELETS_CAM_2[22], imageCam2)
-    print(uBGR)
-    print(rBGR)
-    print(fBGR)
-    print(dBGR)
-    print(lBGR)
-    print(bBGR)
 
     bgr_vals = np.array(bgr_vals)
 
