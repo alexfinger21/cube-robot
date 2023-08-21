@@ -1,6 +1,7 @@
 import pyfirmata
 import time
 import constants
+import getCubeState
 from StepperMotor import Motor
 from Robot import Robot
 
@@ -34,25 +35,33 @@ CubeRobot = Robot(DownMotor, UpMotor, LeftMotor, RightMotor, FrontMotor, BackMot
 # CubeRobot.rotate("R", 1) --> turns the right motor 90 degrees clockwise
 # CubeRobot.rotate("L", 1) --> turns the left motor 90 degrees clockwise
 
-# TEST
-print("not kosher")
+
+def solve():
+    cube_state = getCubeState.get_state()
+    print(cube_state)
 
 
-CubeRobot.solve("D D2 L' R' R2 L2")
-while True:
-    print("clockwise")
-    CubeRobot.rotate("D", 2)  # turns the bottom motor 180 degrees clockwise
-    time.sleep(1)
-    CubeRobot.rotate("L", 2)  # turns the left motor 180 degrees clockwise
-    time.sleep(1)
-    CubeRobot.rotate("R", 2)  # turns the right motor 180 degrees clockwise
-    time.sleep(1)
+def testing():
+    # TEST
+    print("not kosher")
 
-    print("counterclockwise")
-    CubeRobot.rotate("D’", 1)  # turns the bottom motor 90 degrees counterclockwise
-    time.sleep(1)
-    CubeRobot.rotate("L’", 1)  # turns the left motor 90 degrees counterclockwise
-    time.sleep(1)
-    CubeRobot.rotate("R’", 1)  # turns the right motor 90 degrees counterclockwise
-    time.sleep(1)
+    CubeRobot.solve("D D2 L' R' R2 L2")
+    while True:
+        print("clockwise")
+        CubeRobot.rotate("D", 2)  # turns the bottom motor 180 degrees clockwise
+        time.sleep(1)
+        CubeRobot.rotate("L", 2)  # turns the left motor 180 degrees clockwise
+        time.sleep(1)
+        CubeRobot.rotate("R", 2)  # turns the right motor 180 degrees clockwise
+        time.sleep(1)
 
+        print("counterclockwise")
+        CubeRobot.rotate("D’", 1)  # turns the bottom motor 90 degrees counterclockwise
+        time.sleep(1)
+        CubeRobot.rotate("L’", 1)  # turns the left motor 90 degrees counterclockwise
+        time.sleep(1)
+        CubeRobot.rotate("R’", 1)  # turns the right motor 90 degrees counterclockwise
+        time.sleep(1)
+
+
+testing()
