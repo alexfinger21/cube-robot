@@ -2,11 +2,16 @@ import pyfirmata
 import time
 import constants
 import getCubeState
+import kociemba
 from StepperMotor import Motor
 from Robot import Robot
 
 # Initialize the Arduino Board
-board = pyfirmata.Arduino("COM3")
+try:
+    board = pyfirmata.Arduino("COM3")
+except:
+    print("OOPSY DOOPSY YOU DON't HAVE AN ARDUINO :P")
+    exit()
 print("Communication Started!!!")
 
 
@@ -37,8 +42,10 @@ CubeRobot = Robot(DownMotor, UpMotor, LeftMotor, RightMotor, FrontMotor, BackMot
 
 
 def solve():
+    #cube_state = getCubeState.get_state()
     cube_state = getCubeState.get_state()
-    print(cube_state)
+    solution_string = kociemba.solve(cube_state)
+    print(solution_string)
 
 
 def testing():

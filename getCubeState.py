@@ -85,4 +85,4 @@ def get_state():
 
     return cube_state_string
 
-print(get_state())
+#print(get_state())

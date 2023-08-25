@@ -1,8 +1,6 @@
 # THIS IS A TESTING FILE FOR SOME VISION STUFF
 
-import cv2
 import numpy as np
-import constants
 
 global green, yellow, red, blue, white, orange
 
@@ -33,7 +31,6 @@ def get_state():
     white = [255, 255, 255]
     orange = [0, 165, 255]
 
-    return findClosestCenterFacelet(np.array([247, 121, 2]))  #Just enter a BGR value in here and it returns its color
+    return findClosestCenterFacelet(np.array([72, 40, 63]))  #Just enter a BGR value in here and it returns its color
 
 print(get_state())
-
