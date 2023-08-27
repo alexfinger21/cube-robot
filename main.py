@@ -53,7 +53,8 @@ def solve():
 
     # Inputs the state into kociemba algorithm and gets a solution state6
     solution_string = kociemba.solve(cube_state)
-    print(solution_string)
+    print(f"solution is --> {solution_string}")
+    CubeRobot.solve(solution_string)
 
 
 def testing():
