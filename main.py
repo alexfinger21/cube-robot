@@ -1,4 +1,6 @@
 import pyfirmata
+import tkinter
+import customtkinter
 import time
 import constants
 import getCubeState
@@ -6,32 +8,31 @@ import kociemba
 from StepperMotor import Motor
 from Robot import Robot
 
-# Initialize the Arduino Board
-try:
-    board = pyfirmata.Arduino("COM3")
-except:
-    print("OOPSY DOOPSY YOU DON't HAVE AN ARDUINO :P")
-    exit()
 
-print("Communication Started!!!")
+if __name__ == "__main__":
+
+    # Initialize the Arduino Board
+    try:
+        board = pyfirmata.Arduino("COM3")
+    except:
+        print("OOPSY DOOPSY YOU DON't HAVE AN ARDUINO :P")
+        exit()
+
+    print("Communication Started!!!")
 
 
-# YOU NEED TO CHANGE THE PORT NUMBERS IN CONSTANTS.PY!!!
-# Initializes all the Motors
-DownMotor = Motor(board.digital[constants.BOTTOM_MOTOR_DIR_PIN], board.digital[constants.BOTTOM_MOTOR_STEP_PIN])
-UpMotor = Motor(board.digital[constants.TOP_MOTOR_DIR_PIN], board.digital[constants.TOP_MOTOR_STEP_PIN])
-LeftMotor = Motor(board.digital[constants.LEFT_MOTOR_DIR_PIN], board.digital[constants.LEFT_MOTOR_STEP_PIN])
-RightMotor = Motor(board.digital[constants.RIGHT_MOTOR_DIR_PIN], board.digital[constants.RIGHT_MOTOR_STEP_PIN])
-FrontMotor = Motor(board.digital[constants.FRONT_MOTOR_DIR_PIN], board.digital[constants.FRONT_MOTOR_STEP_PIN])
-BackMotor = Motor(board.digital[constants.BACK_MOTOR_DIR_PIN], board.digital[constants.BACK_MOTOR_STEP_PIN])
+    # YOU NEED TO CHANGE THE PORT NUMBERS IN CONSTANTS.PY!!!
+    # Initializes all the Motors
+    DownMotor = Motor(board.digital[constants.BOTTOM_MOTOR_DIR_PIN], board.digital[constants.BOTTOM_MOTOR_STEP_PIN])
+    UpMotor = Motor(board.digital[constants.TOP_MOTOR_DIR_PIN], board.digital[constants.TOP_MOTOR_STEP_PIN])
+    LeftMotor = Motor(board.digital[constants.LEFT_MOTOR_DIR_PIN], board.digital[constants.LEFT_MOTOR_STEP_PIN])
+    RightMotor = Motor(board.digital[constants.RIGHT_MOTOR_DIR_PIN], board.digital[constants.RIGHT_MOTOR_STEP_PIN])
+    FrontMotor = Motor(board.digital[constants.FRONT_MOTOR_DIR_PIN], board.digital[constants.FRONT_MOTOR_STEP_PIN])
+    BackMotor = Motor(board.digital[constants.BACK_MOTOR_DIR_PIN], board.digital[constants.BACK_MOTOR_STEP_PIN])
 
-# Initializes the Robot
-CubeRobot = Robot(DownMotor, UpMotor, LeftMotor, RightMotor, FrontMotor, BackMotor)
+    # Initializes the Robot
+    CubeRobot = Robot(DownMotor, UpMotor, LeftMotor, RightMotor, FrontMotor, BackMotor)
 
-# The only thing left to program is using the kociemba library to feed a solution string into the CubeRobot
-# I would suggest installing kociemba on your laptop if you have not already, it is not an easy process like
-# most python libraries, you will need up+dated C++ build tools and took me a while to figure out. Alex and I have
-# it installed on our PC's but let's all get it installed on our laptops.
 
 # If you want to test turning the robot, simply call the Robot objects "rotate" method
 # ↓ ↓ ↓ ↓ Below is some example syntax ↓ ↓ ↓ ↓
@@ -44,7 +45,7 @@ CubeRobot = Robot(DownMotor, UpMotor, LeftMotor, RightMotor, FrontMotor, BackMot
 
 def solve():
     """
-    :return: void function but it gets the solution for the current state of the cube
+    :return: void function, but it gets the solution for the current state of the cube
     """
 
     # Gets the cube state
@@ -78,4 +79,25 @@ def testing():
         time.sleep(1)
 
 
-testing()
+#Creates the GUI
+root_tk = tkinter.Tk()
+root_tk.geometry("400x240")
+root_tk.title("Cube Robot GUI")
+customtkinter.set_appearance_mode("dark")
+customtkinter.set_default_color_theme("green")
+
+def test():
+    testing()
+
+def solveCube():
+    print("WARNING: THIS FUNCTION DOESN'T WORK PROPERLY YET!")
+    solve()
+
+# Use CTkButton instead of tkinter Button
+test_button = customtkinter.CTkButton(master=root_tk, corner_radius=10, text="testing",command=test)
+solve_button = customtkinter.CTkButton(master=root_tk, corner_radius=10, text="solve",command=solveCube)
+
+test_button.place(relx=0.5, rely=0.3, anchor=tkinter.CENTER)
+solve_button.place(relx=0.5, rely=0.7, anchor=tkinter.CENTER)
+
+root_tk.mainloop()
