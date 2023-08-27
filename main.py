@@ -12,6 +12,7 @@ try:
 except:
     print("OOPSY DOOPSY YOU DON't HAVE AN ARDUINO :P")
     exit()
+
 print("Communication Started!!!")
 
 
@@ -42,8 +43,14 @@ CubeRobot = Robot(DownMotor, UpMotor, LeftMotor, RightMotor, FrontMotor, BackMot
 
 
 def solve():
-    #cube_state = getCubeState.get_state()
+    """
+    :return: void function but it gets the solution for the current state of the cube
+    """
+
+    # Gets the cube state
     cube_state = getCubeState.get_state()
+
+    # Inputs the state into kociemba algorithm and gets a solution state6
     solution_string = kociemba.solve(cube_state)
     print(solution_string)
 

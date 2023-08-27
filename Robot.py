@@ -1,7 +1,14 @@
 class Robot:
 
     def __init__(self, down, up, left, right, front, back):
-        # This Robot class takes in 6 Motor objects as parameters
+        """
+        :param down:
+        :param up:
+        :param left:
+        :param right:
+        :param front:
+        :param back:
+        """
 
         self.DownMotor = down
         self.UpMotor = up
@@ -11,10 +18,14 @@ class Robot:
         self.BackMotor = back
 
     def solve(self, solution_string):
-        # Solution string is a string in this format "R U R’ U R U2 R’ U"
-        # This is how the kociemba library gives us the solution
-        # link to documentation below, so you know how it all works
-        # https://pypi.org/project/kociemba/
+        """
+        :param solution_string: string is a string in this format "R U R’ U R U2 R’ U"
+                                This is how the kociemba library gives us the solutio
+                                link to documentation below, so you know how it all works
+                                https://pypi.org/project/kociemba/
+        :type solution_string: string
+        :return void
+        """
 
         solution_list = solution_string.split()
         for move in solution_list:
@@ -24,10 +35,15 @@ class Robot:
                     continue
             self.rotate(move, 1)
 
+
     def rotate(self, side, turns):
-        # turns is an integer either 1 or 2
-        # this rotates the stepper motor either 180 or 90 degrees counterclockwise or clockwise
-        # on whichever motor you specify.
+        """
+        :param side: The side you want to turn
+        :type side: string
+        :param turns: Either one or two, one for a 90-degree turn, 2 for 180 degrees
+        :type turns: integer
+        :return: void function
+        """
 
         if (turns != 1) and (turns != 2):
             print("ERROR: turns has to be an integer either 1 or 2 (1 for 90 degree turn 2 for a 180 degree turn)")

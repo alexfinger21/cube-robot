@@ -1,13 +1,18 @@
 class Motor:
     def __init__(self, dir_pin, step_pin):
-        # This Motor class takes in the digital port numbers the
-        # "direction" and "step" pins are plugged into on the arduino
+        """
+        :param dir_pin: This is the digital port for the pin that controls the motor's direction
+        :param step_pin: This is the digital port for the pin that controls how fast the motor moves
+        """
 
         self.dirPin = dir_pin
         self.stepPin = step_pin
 
     def turn(self, degrees):
-        # Turns the motor by a given degree value
+        """
+        :param degrees: the amount of degrees you want your stepper motor to turn
+        :return: void function
+        """
 
         iterations = round(degrees / 1.8)
         for i in range(0, iterations):
@@ -15,7 +20,11 @@ class Motor:
             self.stepPin.write(0)
 
     def setDirection(self, direction):
-        # Sets the rotation direction of the motor as either clockwise or counterclockwise
+        """
+        :param direction: indicates which direction you want the motor to spin, either clockwise or counterclockwise
+        :type: string
+        :return:
+        """
 
         if direction == "clockwise":
             self.dirPin.write(0)

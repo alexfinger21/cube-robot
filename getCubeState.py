@@ -6,7 +6,11 @@ global uBGR, dBGR, rBGR, lBGR, fBGR, bBGR
 
 
 def getImage(camera):
-    # Gets the camera image, we have two so this is essential
+    """
+    :param camera: specifies which camera to use, should be either one or two
+    :type camera: int
+    :return: a 2d array of BGR values, grabs a different image depending on the parameter
+    """
 
     if camera == 1:
         ret, frame = cv2.VideoCapture(0).read()  # REPLACE WITH THE ACTUAL IMAGE FROM CAMERA 1
@@ -20,7 +24,11 @@ def getImage(camera):
 
 
 def getBGR(facelet_points, pic):
-    # Averages the 5 BGR values and returns a single value
+    """
+    :param facelet_points: facelet points is a list of lists that holds locations for a specific facelet
+    :param pic: this is an image captured by one of the 2 cameras on the robot
+    :return: returns the average BGR value for all the locations in facelet points
+    """
 
     bgr_values = []
     bgr_values.append(pic[facelet_points[0][0]][facelet_points[0][1]])
@@ -34,10 +42,21 @@ def getBGR(facelet_points, pic):
 
 
 def euclidean_distance(color1, color2):
+    """
+    :param color1: color1 is a BGR value in the form of a numpy array
+    :param color2: color2 is a BGR value in the form of a numpy array
+    :return: returns the distance between the two parameters
+    """
+
     return np.sqrt(np.sum((color1 - color2) ** 2))
 
 
 def findClosestCenterFacelet(color):
+    """
+    :param color: color is a BGR value in the form of a numpy array
+    :return: returns the center facelet with the closes BGR value to the inputted color
+    """
+
     global uBGR, rBGR, fBGR, lBGR, dBGR, bBGR
 
     distances_dict = {euclidean_distance(color, uBGR): "U", euclidean_distance(color, rBGR): "R",
@@ -49,6 +68,9 @@ def findClosestCenterFacelet(color):
 
 
 def get_state():
+    """
+    :return: a cube state string as defined in the kociemba library documentation https://pypi.org/project/kociemba/
+    """
     global uBGR, dBGR, lBGR, rBGR, fBGR, bBGR
 
     bgr_vals = []
