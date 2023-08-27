@@ -2,12 +2,23 @@ class Robot:
 
     def __init__(self, down, up, left, right, front, back):
         """
-        :param down:
-        :param up:
-        :param left:
-        :param right:
-        :param front:
-        :param back:
+        :param down: the stepper motor controlling the bottom side of the Rubik's Cube
+        :type down: Motor object imported from StepperMotor.py
+
+        :param up: the stepper motor controlling the top side of the Rubik's Cube
+        :type up: Motor object imported from StepperMotor.py
+
+        :param left: the stepper motor controlling the left side of the Rubik's Cube
+        :type left: Motor object imported from StepperMotor.py
+
+        :param right: the stepper motor controlling the right side of the Rubik's Cube
+        :type right: Motor object imported from StepperMotor.py
+
+        :param front: the stepper motor controlling the front side of the Rubik's Cube
+        :type front: Motor object imported from StepperMotor.py
+
+        :param back: the stepper motor controlling the back side of the Rubik's Cube
+        :type back: Motor object imported from StepperMotor.py
         """
 
         self.DownMotor = down
