@@ -1,3 +1,6 @@
+import time
+
+
 class Motor:
     def __init__(self, dir_pin, step_pin):
         """
@@ -17,6 +20,7 @@ class Motor:
         iterations = round(degrees / 1.8)
         for i in range(0, iterations):
             self.stepPin.write(1)
+            time.sleep(0.0005)
             self.stepPin.write(0)
 
     def setDirection(self, direction):

@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     # Initialize the Arduino Board
     try:
-        board = pyfirmata.Arduino("COM3")
+        board = pyfirmata.Arduino(constants.COM_PORT)
     except:
         print("OOPSY DOOPSY YOU DON't HAVE AN ARDUINO :P")
         exit()
@@ -64,22 +64,18 @@ def testing():
     CubeRobot.solve("D D2 L' R' R2 L2")
     while True:
         print("clockwise")
-        CubeRobot.rotate("D", 2)  # turns the bottom motor 180 degrees clockwise
+        #CubeRobot.rotate("D", 2)  # turns the bottom motor 180 degrees clockwise
         time.sleep(1)
-        CubeRobot.rotate("L", 2)  # turns the left motor 180 degrees clockwise
-        time.sleep(1)
-        CubeRobot.rotate("R", 2)  # turns the right motor 180 degrees clockwise
+        #CubeRobot.rotate("L", 2)  # turns the left motor 180 degrees clockwise
         time.sleep(1)
 
         print("counterclockwise")
-        CubeRobot.rotate("D’", 1)  # turns the bottom motor 90 degrees counterclockwise
+        #CubeRobot.rotate("D’", 1)  # turns the bottom motor 90 degrees counterclockwise
         time.sleep(1)
         CubeRobot.rotate("L’", 1)  # turns the left motor 90 degrees counterclockwise
         time.sleep(1)
-        CubeRobot.rotate("R’", 1)  # turns the right motor 90 degrees counterclockwise
-        time.sleep(1)
-
-
+testing()
+"""
 #Creates the GUI
 root_tk = tkinter.Tk()
 root_tk.geometry("400x240")
@@ -102,3 +98,5 @@ test_button.place(relx=0.5, rely=0.3, anchor=tkinter.CENTER)
 solve_button.place(relx=0.5, rely=0.7, anchor=tkinter.CENTER)
 
 root_tk.mainloop()
+*/
+"""
